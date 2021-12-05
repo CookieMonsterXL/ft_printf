@@ -1,6 +1,6 @@
 NAME := libftprintf.a
 
-HEADERFILES := libftprintf.h ./libs/libft/libft.h
+HEADERFILES := ./libs/ft_printf.h ./libs/libft/libft.h
 OBJFILES := obj/ft_printf.o
 ARGFILES := ./libs/libft/libft.a
 CFLAGS := -Wall -Wextra -Werror
@@ -16,7 +16,7 @@ $(NAME): $(OBJFILES)
 
 obj/%.o: %.c $(HEADERFILES)
 	@mkdir -p $(dir $@)
-	$(CC) -c $(CFLAGS) -o $@ $< -I $(HEADERFILES)
+	$(CC) -c $(CFLAGS) -o $@ $<
 
 
 
