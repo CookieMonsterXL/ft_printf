@@ -1,6 +1,5 @@
 NAME := libftprintf.a
-
-HEADERFILES := ./libs/ft_printf.h ./libs/libft/libft.h
+#HEADERFILES := ./libs/ft_printf.h ./libs/libft/libft.h
 OBJFILES := obj/ft_printf.o
 ARGFILES := ./libs/libft/libft.a
 CFLAGS := -Wall -Wextra -Werror
@@ -14,14 +13,19 @@ libft:
 $(NAME): $(OBJFILES)
 	ar -rsc  $(NAME) $@
 
-obj/%.o: %.c $(HEADERFILES)
+obj/%.o: %.c
 	@mkdir -p $(dir $@)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
+clean:
+	rm -f $(OBJFILES)
 
+fclean:	clean
+	rm -f $(NAME)
 
-	ar -rsc  $(NAME) $@
+re: fclean all
 
+.PHONY: clean all fclean re
 
 #	$(CC) -C lib/libft
 

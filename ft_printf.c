@@ -6,13 +6,11 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-#include <stdint.h>
-
 int ft_printf	(const char *str, ...)
 {
 	va_list argList;
 	char *ptr;
-	char **str_arr;
+	//char **str_arr;
 	int i;
 	int j;
 
