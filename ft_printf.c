@@ -1,7 +1,7 @@
 //
 // Created by Tiemen Bouma on 11/19/21.
 //
-#include "headers/ft_printf.h"
+#include "ft_printf.h"
 #include <stdarg.h>
 #include <unistd.h>
 

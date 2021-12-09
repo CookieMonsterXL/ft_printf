@@ -2,7 +2,7 @@
 // Created by Tiemen Bouma on 12/8/21.
 //
 #include <stdarg.h>
-#include "libs/libft/libft.h"
+#include "libft/libft.h"
 
 int	xup_print(va_list argList)
 {
