@@ -6,10 +6,10 @@ CFLAGS := -Wall -Wextra -Werror
 all: libft $(NAME)
 
 libft:
-	make -C ./libs/libft
+	make -C ./libft
 
 relibft:
-	make re -C ./libs/libft
+	make re -C ./libft
 
 $(NAME): $(OBJFILES)
 	cp $(LIBFT) $(NAME)
@@ -24,7 +24,7 @@ clean:
 
 fclean:	clean
 	rm -f $(NAME)
-	make fclean -C ./libs/libft
+	make fclean -C ./libft
 
 re: relibft fclean all
 
