@@ -1,7 +1,6 @@
 NAME := libftprintf.a
-#HEADERFILES := ./libs/ft_printf.h ./libs/libft/libft.h
 OBJFILES := obj/ft_printf.o obj/print.o
-LIBFT := ./libs/libft/libft.a
+LIBFT := ./libft/libft.a
 CFLAGS := -Wall -Wextra -Werror
 
 all: libft $(NAME)
