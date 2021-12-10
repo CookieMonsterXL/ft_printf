@@ -1,5 +1,5 @@
 NAME := libftprintf.a
-OBJFILES := obj/ft_printf.o obj/print.o
+OBJFILES := obj/ft_printf.o obj/print_flag.o
 LIBFT := ./libft/libft.a
 CFLAGS := -Wall -Wextra -Werror
 

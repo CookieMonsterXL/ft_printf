@@ -69,7 +69,7 @@ int	s_print(va_list argList)
 	return (count);
 }
 
-int	print(const char *str, va_list argList, int i)
+int	print_flag(const char *str, va_list argList, int i)
 {
 	int	count;
 

@@ -1,11 +1,16 @@
 //
 // Created by Tiemen Bouma on 11/19/21.
 //
-#include "ft_printf.h"
+#include "headers/printf_helper.h"
 #include <stdarg.h>
 #include <unistd.h>
 
-int	func(const char *str, va_list argList)
+static int check_flag(char c)
+{
+	return (c == 'u' || c == 'x' || c == 'X' || c == 'd' || c == 'i' || c == 'p' || c == 'c' || c == 's' || c == '%');
+}
+
+int	print(const char *str, va_list argList)
 {
 	int	i;
 	int	count;
@@ -16,12 +21,12 @@ int	func(const char *str, va_list argList)
 	{
 		if (str[i] != '%')
 			count += write(1, str + i, 1);
-		if (str[i] == '%' && str[i + 1] && str[i + 1] != '\a'
-			&& str[i + 1] != '\b' && str[i + 1] != '\f' && str[i + 1] != '\n'
-			&& str[i + 1] != '\r' && str[i + 1] != '\t' && str[i + 1] != '\v')
+		if (str[i] == '%' && str[i + 1])
 		{
 			i++;
-			count += print(str, argList, i);
+			if(!check_flag(str[i]))
+				return (count += write(1, "|No valid flag after %. Stopped|", 24));
+			count += print_flag(str, argList, i);
 		}
 		i++;
 	}
@@ -35,7 +40,7 @@ int	ft_printf(const char *str, ...)
 
 	count = 0;
 	va_start(argList, str);
-	count += func(str, argList);
+	count += print(str, argList);
 	va_end(argList);
 	return (count);
 }
