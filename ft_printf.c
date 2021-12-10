@@ -10,7 +10,7 @@ static int check_flag(char c)
 	return (c == 'u' || c == 'x' || c == 'X' || c == 'd' || c == 'i' || c == 'p' || c == 'c' || c == 's' || c == '%');
 }
 
-int	print(const char *str, va_list argList)
+int	print(const char *str, va_list *argList)
 {
 	int	i;
 	int	count;
@@ -40,7 +40,7 @@ int	ft_printf(const char *str, ...)
 
 	count = 0;
 	va_start(argList, str);
-	count += print(str, argList);
+	count += print(str, &argList);
 	va_end(argList);
 	return (count);
 }
