@@ -6,13 +6,14 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 10:45:41 by tbouma            #+#    #+#             */
-/*   Updated: 2021/12/15 13:34:30 by tbouma           ###   ########.fr       */
+/*   Updated: 2021/12/15 16:27:51 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <unistd.h>
 #include "headers/printf_helper.h"
+#include "libft/libft.h"
 
 static int	check_flag(char c)
 {
@@ -24,13 +25,16 @@ static int	print(const char *str, va_list *argList)
 {
 	int	i;
 	int	count;
+	int	len_write;
 
 	i = 0;
 	count = 0;
 	while (str[i])
 	{
+		//need other function to calc length to next %
+		len_write = ft_strchr(str + i, '%');
 		if (str[i] != '%')
-			count += write(1, str + i, 1);
+			count += write(1, str + i, len_write);
 		if (str[i] == '%' && str[i + 1])
 		{
 			i++;

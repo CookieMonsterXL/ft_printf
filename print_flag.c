@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 11:24:38 by tbouma            #+#    #+#             */
-/*   Updated: 2021/12/15 13:14:34 by tbouma           ###   ########.fr       */
+/*   Updated: 2021/12/15 16:19:36 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static int	xup_print(va_list *argList)
 
 	count = 0;
 	ptr = ft_ull_base(va_arg(*argList, unsigned int), 16);
+	if (ptr == NULL)
+		return (NULL);
 	count += ft_putstr_fd(ptr, 1);
 	free(ptr);
 	return (count);
@@ -34,6 +36,8 @@ static int	x_print(va_list *argList)
 	count = 0;
 	j = 0;
 	ptr = ft_ull_base(va_arg(*argList, unsigned int), 16);
+	if (ptr == NULL)
+		return (NULL);
 	while (ptr[j])
 	{
 		ptr[j] = ft_tolower(ptr[j]);
@@ -53,6 +57,8 @@ static int	p_print(va_list *argList)
 	count = 0;
 	j = 0;
 	ptr = ft_ull_base(va_arg(*argList, unsigned long long), 16);
+	if (ptr == NULL)
+		return (NULL);
 	while (ptr[j])
 	{
 		ptr[j] = ft_tolower(ptr[j]);
