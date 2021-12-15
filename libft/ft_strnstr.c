@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/15 11:28:47 by tbouma            #+#    #+#             */
+/*   Updated: 2021/12/15 11:30:53 by tbouma           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*find_needle(const char *haystack, const char *needle,
-				  size_t len_needle, size_t len)
+				size_t len_needle, size_t len)
 {
 	size_t	index_haystack;
 	size_t	index_needle;

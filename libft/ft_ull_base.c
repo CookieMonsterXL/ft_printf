@@ -1,7 +1,17 @@
-//
-// Created by Tiemen Bouma on 12/6/21.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ull_base.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/15 11:29:24 by tbouma            #+#    #+#             */
+/*   Updated: 2021/12/15 11:30:19 by tbouma           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+
 char	*base_mod(unsigned long long ull, int base, int count, char *ptr)
 {
 	long long	remainder;

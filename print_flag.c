@@ -1,10 +1,18 @@
-//
-// Created by Tiemen Bouma on 12/8/21.
-//
-#include <stdarg.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_flag.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/15 11:24:38 by tbouma            #+#    #+#             */
+/*   Updated: 2021/12/15 11:24:44 by tbouma           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft/libft.h"
 
-int	xup_print(va_list *argList)
+static int	xup_print(va_list *argList)
 {
 	char	*ptr;
 	int		count;
@@ -16,7 +24,7 @@ int	xup_print(va_list *argList)
 	return (count);
 }
 
-int	x_print(va_list *argList)
+static int	x_print(va_list *argList)
 {
 	int		j;
 	char	*ptr;
@@ -35,7 +43,7 @@ int	x_print(va_list *argList)
 	return (count);
 }
 
-int	p_print(va_list *argList)
+static int	p_print(va_list *argList)
 {
 	int		j;
 	int		count;
@@ -55,7 +63,7 @@ int	p_print(va_list *argList)
 	return (count);
 }
 
-int	s_print(va_list *argList)
+static int	s_print(va_list *argList)
 {
 	char	*ptr;
 	int		count;

@@ -1,13 +1,22 @@
-//
-// Created by Tiemen Bouma on 11/19/21.
-//
-#include "headers/printf_helper.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/15 10:45:41 by tbouma            #+#    #+#             */
+/*   Updated: 2021/12/15 11:21:05 by tbouma           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdarg.h>
 #include <unistd.h>
 
-static int check_flag(char c)
+static int	check_flag(char c)
 {
-	return (c == 'u' || c == 'x' || c == 'X' || c == 'd' || c == 'i' || c == 'p' || c == 'c' || c == 's' || c == '%');
+	return (c == 'u' || c == 'x' || c == 'X' || c == 'd'
+		|| c == 'i' || c == 'p' || c == 'c' || c == 's' || c == '%');
 }
 
 int	print(const char *str, va_list *argList)
@@ -24,8 +33,8 @@ int	print(const char *str, va_list *argList)
 		if (str[i] == '%' && str[i + 1])
 		{
 			i++;
-			if(!check_flag(str[i]))
-				return (count += write(1, "|No valid flag after %. Stopped|", 24));
+			if (!check_flag(str[i]))
+				return (-1);
 			count += print_flag(str, argList, i);
 		}
 		i++;
@@ -35,58 +44,12 @@ int	print(const char *str, va_list *argList)
 
 int	ft_printf(const char *str, ...)
 {
-	va_list	argList;
+	va_list	arglist;
 	int		count;
 
 	count = 0;
-	va_start(argList, str);
-	count += print(str, &argList);
-	va_end(argList);
+	va_start(arglist, str);
+	count += print(str, &arglist);
+	va_end(arglist);
 	return (count);
 }
-//int main(void)
-//{
-//	char			a;
-//	char			*str = "abcdefg";
-//	char			*p;
-//	int				i;
-//	unsigned int	u;
-//	unsigned int	hex;
-//	unsigned int	hex2;
-//
-//	i = 1;
-//	p = &a;
-//	a = 'b';
-//	u = 2;
-//	hex = 233451523;
-//	hex2 = -0xDEA3003;
-//	ft_printf("alleen tekst");
-//	printf("\n");
-//	ft_printf("Print char b: %c en int i: %i", a, i);
-//	printf("\n");
-//	ft_printf("Print string str: %s", str);
-//	printf("\n");
-//	ft_printf("ft_Printf pointer adres p: %p", p);
-//	printf("\n");
-//	printf("Printf pointer adres p: %p", p);
-//	printf("\n");
-//	ft_printf("Print int i: %d", i);
-//	printf("\n");
-//	ft_printf("Print unsigned int u: %u", u);
-//	printf("\n");
-//	ft_printf("ft_Print hexadec unsigned hexup: %X", hex);
-//	printf("\n");
-//	printf("Print hexadec unsigned hexup: %X", hex);
-//	printf("\n");
-//	ft_printf("ft_Print hexadec unsigned hexlo: %x", hex);
-//	printf("\n");
-//	printf("Printf hexadec unsigned hexlo: %x", hex);
-//	printf("\n");
-//	ft_printf("Print percentage: %%");
-//	printf("\n");
-//	ft_printf("ft_Print hexadec minus hexlo2: %x", hex2);
-//	printf("\n");
-//	printf("Printf hexadec minus unsigned hexlo2: %x", hex2);
-//	printf("\n");
-//	return (0);
-//}
