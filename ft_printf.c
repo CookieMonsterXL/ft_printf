@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 10:45:41 by tbouma            #+#    #+#             */
-/*   Updated: 2021/12/15 13:13:56 by tbouma           ###   ########.fr       */
+/*   Updated: 2021/12/15 13:34:30 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	check_flag(char c)
 		|| c == 'i' || c == 'p' || c == 'c' || c == 's' || c == '%');
 }
 
-int	print(const char *str, va_list *argList)
+static int	print(const char *str, va_list *argList)
 {
 	int	i;
 	int	count;
