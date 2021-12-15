@@ -28,13 +28,4 @@ fclean:	clean
 
 re: relibft fclean all
 
-.PHONY: clean all fclean re libft
-
-#	$(CC) -C lib/libft
-
-
-#	$(CC) -L./lib/libft.a -l ft
-
-	#$(CC) -c name.o name.c -I./includefolder
-    	#$(MAKE) -C $(LIBFT_DIR)
-    	#$(CC) -L$(LIBFT_DIR) -lft -o exec_name src_file1 src_file2
+.PHONY: clean all fclean re libft relibft

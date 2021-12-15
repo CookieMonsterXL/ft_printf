@@ -6,11 +6,12 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 11:24:38 by tbouma            #+#    #+#             */
-/*   Updated: 2021/12/15 11:24:44 by tbouma           ###   ########.fr       */
+/*   Updated: 2021/12/15 13:14:34 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
+#include <stdarg.h>
 
 static int	xup_print(va_list *argList)
 {
