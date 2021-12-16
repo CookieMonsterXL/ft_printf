@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 11:24:38 by tbouma            #+#    #+#             */
-/*   Updated: 2021/12/15 16:19:36 by tbouma           ###   ########.fr       */
+/*   Updated: 2021/12/16 14:11:02 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	xup_print(va_list *argList)
 	count = 0;
 	ptr = ft_ull_base(va_arg(*argList, unsigned int), 16);
 	if (ptr == NULL)
-		return (NULL);
+		return (0);
 	count += ft_putstr_fd(ptr, 1);
 	free(ptr);
 	return (count);
@@ -37,7 +37,7 @@ static int	x_print(va_list *argList)
 	j = 0;
 	ptr = ft_ull_base(va_arg(*argList, unsigned int), 16);
 	if (ptr == NULL)
-		return (NULL);
+		return (0);
 	while (ptr[j])
 	{
 		ptr[j] = ft_tolower(ptr[j]);
@@ -58,7 +58,7 @@ static int	p_print(va_list *argList)
 	j = 0;
 	ptr = ft_ull_base(va_arg(*argList, unsigned long long), 16);
 	if (ptr == NULL)
-		return (NULL);
+		return (0);
 	while (ptr[j])
 	{
 		ptr[j] = ft_tolower(ptr[j]);
@@ -91,19 +91,19 @@ int	print_flag(const char *str, va_list *argList, int i)
 	count = 0;
 	if (str[i] == 'c')
 		count += ft_putchar_fd(va_arg(*argList, int), 1);
-	if (str[i] == 's')
+	else if (str[i] == 's')
 		count += s_print(argList);
-	if (str[i] == 'p')
+	else if (str[i] == 'p')
 		count += p_print(argList);
-	if (str[i] == 'd' || str[i] == 'i')
+	else if (str[i] == 'd' || str[i] == 'i')
 		count += ft_putnbr_fd(va_arg(*argList, int), 1);
-	if (str[i] == 'u')
+	else if (str[i] == 'u')
 		count += ft_putnbr_fd(va_arg(*argList, unsigned int), 1);
-	if (str[i] == 'x')
+	else if (str[i] == 'x')
 		count += x_print(argList);
-	if (str[i] == 'X')
+	else if (str[i] == 'X')
 		count += xup_print(argList);
-	if (str[i] == '%')
+	else if (str[i] == '%')
 		count += ft_putchar_fd('%', 1);
 	return (count);
 }
